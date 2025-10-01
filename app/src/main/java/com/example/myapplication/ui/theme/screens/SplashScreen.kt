@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.theme
+package com.example.myapplication.ui.theme.screens
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -19,6 +19,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.Brush
+import com.example.myapplication.navigation.Routes
 import kotlinx.coroutines.delay
 
 @Composable
@@ -39,9 +41,15 @@ fun SplashScreen(navController: NavController){
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF1976D2)),
+            .background(
+                brush = Brush.verticalGradient(
+                    colors = listOf(Color(0xFFE53935), Color(0xFF8E24AA))
+                )
+            ),
         contentAlignment = Alignment.Center
-    ) {
+    )
+
+    {
         Text(
             text = "Movie APP",
             style = MaterialTheme.typography.headlineLarge,

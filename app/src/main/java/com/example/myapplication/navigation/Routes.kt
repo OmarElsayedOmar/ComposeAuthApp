@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.theme
+package com.example.myapplication.navigation
 
 object Routes {
     const val splash: String = "splash"

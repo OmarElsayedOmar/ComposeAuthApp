@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.theme
+package com.example.myapplication.data
 
 import android.content.Context
 import androidx.room.Room

@@ -5,8 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.myapplication.ui.theme.AppNavigation
+import com.example.myapplication.navigation.AppNavigation
 
 class MainActivity : ComponentActivity() {
 
