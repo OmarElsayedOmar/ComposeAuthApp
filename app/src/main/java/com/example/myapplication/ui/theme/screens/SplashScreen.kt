@@ -22,7 +22,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Brush
 import com.example.myapplication.navigation.Routes
 import kotlinx.coroutines.delay
-
 @Composable
 fun SplashScreen(navController: NavController){
     var visible by remember { mutableStateOf(false) }

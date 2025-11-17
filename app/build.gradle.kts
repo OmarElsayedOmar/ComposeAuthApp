@@ -80,6 +80,7 @@ dependencies {
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.accompanist.navigation.animation)
 
+
     // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -87,7 +88,16 @@ dependencies {
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
 
+    // Retrofit
+    implementation (libs.gson)
+    implementation (libs.retrofit.v290)
+    implementation (libs.converter.gson)
+
+
+
+
 }
+
 
 
 

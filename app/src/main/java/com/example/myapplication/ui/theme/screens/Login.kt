@@ -8,12 +8,16 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+
 import androidx.compose.foundation.shape.RoundedCornerShape
+
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
@@ -36,6 +40,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -48,7 +53,7 @@ import com.example.myapplication.ui.theme.components.GradientButton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-
+@Preview
 @Composable
 
 fun LoginPage(navController: NavHostController) {
@@ -66,15 +71,20 @@ fun LoginPage(navController: NavHostController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(
+
+        .background(
                 brush = Brush.verticalGradient(
                     colors = listOf(Color(0xFFE53935), Color(0xFF8E24AA))
                 )
             ),
-        contentAlignment = Alignment.TopCenter
+
+        contentAlignment = Alignment.TopCenter,
+
     ) {
+
         Column(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize()
+                ,
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -121,29 +131,22 @@ fun LoginPage(navController: NavHostController) {
                         text = "Login",
                         onClick = {
                             CoroutineScope(Dispatchers.IO).launch {
-                                val user = userDao.login(
-                                    email = email,
-                                    password = password
-                                )
+                                val user = userDao.login(email = email, password = password)
                                 if (user != null) {
                                     CoroutineScope(Dispatchers.Main).launch {
-                                        Toast.makeText(
-                                            context,
-                                            "Login successful",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
+                                        Toast.makeText(context, " Login successful", Toast.LENGTH_SHORT)
+                                            .show()
+                                        navController.navigate(Routes.home) {
+                                            popUpTo("login") { inclusive = true }
+                                        }
                                     }
                                 } else {
                                     CoroutineScope(Dispatchers.Main).launch {
-                                        Toast.makeText(
-                                            context,
-                                            "Please enter your email or password",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
+                                        Toast.makeText(context, " please enter your email or password", Toast.LENGTH_SHORT).show()
                                     }
                                 }
                             }
-                        }
+                        },
                     )
                     Spacer(modifier = Modifier.height(24.dp))
 
@@ -203,7 +206,7 @@ fun LoginPage(navController: NavHostController) {
                             )
                         }
                         IconButton(
-                            onClick = { /* TODO: Twitter Login */ },
+                            onClick = { /* TODO: Facebook Login */ },
                             modifier = Modifier
                                 .size(48.dp)
                                 .background(Color.White, shape = RoundedCornerShape(50))

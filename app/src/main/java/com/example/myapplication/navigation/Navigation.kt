@@ -9,7 +9,10 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.compose.animation.*
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.myapplication.data.MovieViewModel
 import com.example.myapplication.navigation.Routes
+import com.example.myapplication.ui.theme.screens.HomeScreen
 import com.example.myapplication.ui.theme.screens.LoginPage
 import com.example.myapplication.ui.theme.screens.SignUp
 import com.example.myapplication.ui.theme.screens.SplashScreen
@@ -41,6 +44,18 @@ fun AppNavigation() {
         ) {
             LoginPage(navController)
         }
+        composable(
+            Routes.home,
+            enterTransition = {
+                slideInHorizontally(initialOffsetX = { -it }, animationSpec = tween(1000))
+            },
+            exitTransition = {
+                slideOutHorizontally(targetOffsetX = { it }, animationSpec = tween(1000))
+            }
+        ) {
+            val movieViewModel: MovieViewModel = viewModel()
+            HomeScreen(movieViewModel)
+        }
 
         composable(
             Routes.signUp,
@@ -53,5 +68,6 @@ fun AppNavigation() {
         ) {
             SignUp(navController)
         }
+
     }
 }

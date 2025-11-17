@@ -3,7 +3,7 @@ package com.example.myapplication.data
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.myapplication.data.UserEntity
+
 
 @Dao
 interface UserDao {
