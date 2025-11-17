@@ -10,11 +10,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
@@ -37,9 +34,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.room.Room
-import com.example.myapplication.data.AppDatabase
-import com.example.myapplication.data.UserEntity
-import com.example.myapplication.navigation.Routes
+import com.example.myapplication.data.local.AppDatabase
+import com.example.myapplication.data.local.UserEntity
+import com.example.myapplication.ui.theme.navigation.Routes
 import com.example.myapplication.ui.theme.components.CustomTextField
 import com.example.myapplication.ui.theme.components.GradientButton
 import kotlinx.coroutines.CoroutineScope

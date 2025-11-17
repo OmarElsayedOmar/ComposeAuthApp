@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.MaterialTheme
-import com.example.myapplication.navigation.AppNavigation
+import com.example.myapplication.ui.theme.navigation.AppNavigation
 
 class MainActivity : ComponentActivity() {
 

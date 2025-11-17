@@ -1,6 +1,6 @@
-package com.example.myapplication.data
+package com.example.myapplication.data.remote
 
-import android.app.appsearch.SearchResults
+import com.example.myapplication.data.model.MovieResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -12,6 +12,3 @@ interface MovieApi {
     @GET("movie/top_rated")
     suspend fun getTopRatedMovies(@Query("api_key") apiKey: String): MovieResponse
 }
-data class MovieResponse (
-val results: List<Movie>
-)

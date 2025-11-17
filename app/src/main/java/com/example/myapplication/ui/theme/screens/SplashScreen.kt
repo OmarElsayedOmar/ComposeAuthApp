@@ -20,7 +20,7 @@ import androidx.navigation.NavController
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Brush
-import com.example.myapplication.navigation.Routes
+import com.example.myapplication.ui.theme.navigation.Routes
 import kotlinx.coroutines.delay
 @Composable
 fun SplashScreen(navController: NavController){

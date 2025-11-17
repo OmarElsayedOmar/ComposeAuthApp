@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.example.myapplication.navigation
+package com.example.myapplication.ui.theme.navigation
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
@@ -10,8 +10,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.compose.animation.*
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.myapplication.data.MovieViewModel
-import com.example.myapplication.navigation.Routes
+import com.example.myapplication.ui.theme.viewmodel.MovieViewModel
 import com.example.myapplication.ui.theme.screens.HomeScreen
 import com.example.myapplication.ui.theme.screens.LoginPage
 import com.example.myapplication.ui.theme.screens.SignUp

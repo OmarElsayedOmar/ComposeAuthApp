@@ -15,7 +15,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -25,18 +24,26 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
-import com.example.myapplication.data.Movie
-import com.example.myapplication.data.MovieViewModel
+import com.example.myapplication.data.model.Movie
+import com.example.myapplication.data.remote.RetrofitInstance
+import com.example.myapplication.repository.MovieRepository
+import com.example.myapplication.ui.theme.viewmodel.MovieViewModel
+import com.example.myapplication.ui.theme.viewmodel.MovieViewModelFactory
 import kotlin.collections.filter
 import kotlin.text.contains
 import kotlin.text.isEmpty
 
 
 @Composable
-fun HomeScreen(viewModel: MovieViewModel) {
+fun HomeScreen() {
+    val viewModel: MovieViewModel = viewModel(
+        factory = MovieViewModelFactory(
+            MovieRepository(RetrofitInstance.api)
+        )
+    )
     var searchQuery by remember { mutableStateOf("") }
     val popular by viewModel.popularMovies.collectAsState()
     val topRated by viewModel.topRatedMovies.collectAsState()

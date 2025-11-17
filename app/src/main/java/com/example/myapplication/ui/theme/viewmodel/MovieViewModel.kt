@@ -1,12 +1,15 @@
-package com.example.myapplication.data
+package com.example.myapplication.ui.theme.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myapplication.data.model.Movie
+import com.example.myapplication.data.remote.RetrofitInstance
+import com.example.myapplication.repository.MovieRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class MovieViewModel : ViewModel() {
+class MovieViewModel(private val repository: MovieRepository) : ViewModel() {
     private val _popularMovies = MutableStateFlow<List<Movie>>(emptyList())
     val popularMovies: StateFlow<List<Movie>> = _popularMovies
 

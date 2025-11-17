@@ -46,8 +46,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.room.Room
 import com.example.myapplication.R
-import com.example.myapplication.data.AppDatabase
-import com.example.myapplication.navigation.Routes
+import com.example.myapplication.data.local.AppDatabase
+import com.example.myapplication.ui.theme.navigation.Routes
 import com.example.myapplication.ui.theme.components.CustomTextField
 import com.example.myapplication.ui.theme.components.GradientButton
 import kotlinx.coroutines.CoroutineScope

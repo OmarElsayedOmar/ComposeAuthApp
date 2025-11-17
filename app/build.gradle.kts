@@ -9,6 +9,9 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id("kotlin-kapt")
 
+
+
+
 }
 
 android {
@@ -75,10 +78,11 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.navigation.compose)
 
-    // إضافات
+    // add
     implementation(libs.coil.compose)
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.accompanist.navigation.animation)
+    implementation (libs.hilt.android)
 
 
     // Testing
