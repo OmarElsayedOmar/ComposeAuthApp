@@ -9,8 +9,6 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.compose.animation.*
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.myapplication.ui.theme.viewmodel.MovieViewModel
 import com.example.myapplication.ui.theme.screens.HomeScreen
 import com.example.myapplication.ui.theme.screens.LoginPage
 import com.example.myapplication.ui.theme.screens.SignUp
@@ -52,8 +50,8 @@ fun AppNavigation() {
                 slideOutHorizontally(targetOffsetX = { it }, animationSpec = tween(1000))
             }
         ) {
-            val movieViewModel: MovieViewModel = viewModel()
-            HomeScreen(movieViewModel)
+
+            HomeScreen(navController)
         }
 
         composable(

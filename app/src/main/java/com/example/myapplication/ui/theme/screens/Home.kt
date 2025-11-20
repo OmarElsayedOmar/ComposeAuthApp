@@ -21,15 +21,18 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import coil.compose.rememberAsyncImagePainter
 import com.example.myapplication.data.model.Movie
 import com.example.myapplication.data.remote.RetrofitInstance
 import com.example.myapplication.repository.MovieRepository
+import com.example.myapplication.ui.theme.navigation.Routes
 import com.example.myapplication.ui.theme.viewmodel.MovieViewModel
 import com.example.myapplication.ui.theme.viewmodel.MovieViewModelFactory
 import kotlin.collections.filter
@@ -38,13 +41,14 @@ import kotlin.text.isEmpty
 
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavHostController) {
+
     val viewModel: MovieViewModel = viewModel(
         factory = MovieViewModelFactory(
             MovieRepository(RetrofitInstance.api)
         )
     )
-    var searchQuery by remember { mutableStateOf("") }
+    var searchQuery by rememberSaveable { mutableStateOf("") }
     val popular by viewModel.popularMovies.collectAsState()
     val topRated by viewModel.topRatedMovies.collectAsState()
     val upcoming by viewModel.upcomingMovies.collectAsState()
