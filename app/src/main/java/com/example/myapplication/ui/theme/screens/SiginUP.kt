@@ -34,8 +34,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import androidx.room.Room
-import com.example.myapplication.data.local.AppDatabase
+import com.example.myapplication.data.local.DatabaseBuilder
 import com.example.myapplication.data.local.UserEntity
 import com.example.myapplication.ui.theme.navigation.Routes
 import com.example.myapplication.ui.theme.components.CustomTextField
@@ -49,13 +48,7 @@ import kotlinx.coroutines.withContext
 @Composable
 fun SignUp(navController: NavHostController) {
     val context = LocalContext.current
-    val db = remember {
-        Room.databaseBuilder(
-            context,
-            AppDatabase::class.java,
-            "my_database"
-        ).build()
-    }
+    val db = remember { DatabaseBuilder.getInstance(context) }
     val userDao = db.userDao()
     var username by rememberSaveable { mutableStateOf("")}
     var email by rememberSaveable { mutableStateOf("")}
